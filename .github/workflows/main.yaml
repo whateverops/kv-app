@@ -1,17 +1,15 @@
 name: "main workflow"
 
-
 on:
-    pull_request:
-      branches:
-        - dev
-
+  pull_request:
+    branches:
+      - dev
 
 jobs:
   build:
     name: laravel web app
     runs-on: ubuntu-22.04
+    
     steps:
-    - name: install dependencies
-      run: 
-          echo "hello world"
+      - name: install dependencies
+        run: echo "hello world"
