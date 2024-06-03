@@ -9,10 +9,9 @@ on:
 
 jobs:
   build:
-    name:"build laravel app"
-    runs-on:ubuntu-latest
+    name: laravel web app
+    runs-on: ubuntu-22.04
     steps:
-
-     - name: install dependencies
-        run:
+    - name: install dependencies
+      run: 
           echo "hello world"
