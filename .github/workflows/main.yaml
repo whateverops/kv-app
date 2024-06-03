@@ -4,13 +4,13 @@ name: "main workflow"
 on:
     pull_request:
       branches:
-        -dev
+        - dev
 
 
 jobs:
   build:
     name:"build laravel app"
-    runs-on: ubuntu-latest
+    runs-on:ubuntu-latest
     steps:
 
      - name: install dependencies
