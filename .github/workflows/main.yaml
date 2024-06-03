@@ -1,0 +1,18 @@
+name: "main workflow"
+
+
+on:
+    pull_request:
+      branches:
+        -dev
+
+
+jobs:
+  build:
+    name:"build laravel app"
+    runs-on: ubuntu-latest
+    steps:
+
+     - name: install dependencies
+        run:
+          echo "hello world"
