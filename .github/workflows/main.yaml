@@ -5,11 +5,36 @@ on:
     branches:
       - dev
 
+env:
+  PORT: 3000
+
 jobs:
   build:
     name: laravel web app
     runs-on: ubuntu-22.04
     
     steps:
+      - name: php install
+        uses: shivammathur/setup-php@v2
+        with: 
+          php-version: '8.2' 
+
+
+
+      - name: checkout branch
+        uses: actions/checkout@v4
+
+
+
       - name: install dependencies
-        run: echo "hello world"
+        run: |
+          composer install
+
+      - name: env install
+        run: |
+          cp .env.ci .env
+
+      - name: build the application
+        run: |
+          php artisan key:generate
+
