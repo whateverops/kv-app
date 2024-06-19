@@ -34,11 +34,6 @@ jobs:
         run: |
           cp .env.ci .env
 
-      - name: build the application
-        run: |
-          php artisan key:generate
-
-      
       - name: Generate key 
         run: |
           php artisan key:generate
