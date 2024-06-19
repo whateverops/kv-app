@@ -12,6 +12,18 @@ jobs:
   build:
     name: laravel web app
     runs-on: ubuntu-22.04
+    services:
+      mysql:
+        image: mysql:latest
+        ports:
+          - 3306:3306
+
+        env:
+            MYSQL_ALLOW_EMPTY_PASSWORD: false
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USERNAME: root
+            MYSQL_DATABASE: test
+
     
     steps:
       - name: php install
@@ -33,20 +45,6 @@ jobs:
       - name: Generate key 
         run: |
           php artisan key:generate
-
-
-      - name: RUN MYSQL container
-        run: |
-          docker run -d \
-          -e MYSQL_ALLOW_EMPTY_PASSWORD=false \
-          -e MYSQL_ROOT_PASSWORD=password \
-          -e MYSQL_DATABASE=test \
-          -p 3306:3306 \
-          mysql:latest
-
-      - name: Wait for Database startup
-        run: |
-          sleep 20
 
       - name: Migrate the database
         run: |
